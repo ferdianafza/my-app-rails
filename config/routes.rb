@@ -14,6 +14,8 @@ Rails.application.routes.draw do
                    sessions: 'api/v1/devise/sessions',
                    registrations: 'api/v1/devise/registrations'
                  }
+
+      get 'users/myprofile'
     end
   end
 
