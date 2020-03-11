@@ -8,13 +8,15 @@ Rails.application.routes.draw do
                  path_names: {
                    sign_in: 'login',
                    sign_out: 'logout',
-                   registration: 'signup'
+                   registration: 'signup',
                  },
                  controllers: {
+                   students: 'api/v1/students',
                    sessions: 'api/v1/devise/sessions',
                    registrations: 'api/v1/devise/registrations'
                  }
 
+      resources :students
       get 'users/myprofile'
     end
   end
