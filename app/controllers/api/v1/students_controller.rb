@@ -3,9 +3,26 @@ class Api::V1::StudentsController < ApplicationController
 
   # GET /students
   def index
-    @students = Student.all
+    @students = Student.paginate(page: params[:page], per_page: 2)
 
-    render json: @students
+
+    render :json => { 
+       :current_page => @students.current_page,
+
+       :per_page => @students.per_page,
+
+       :total_entries => @students.total_entries,   
+       :total_pages => @students.total_pages,
+
+       :entries => @students 
+
+     }
+
+
+
+    # @students = Student.all
+
+    # render json: @students
   end
 
   # GET /students/1
@@ -46,6 +63,6 @@ class Api::V1::StudentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def student_params
-      params.require(:student).permit(:firstname, :lastname)
+      params.require(:student).permit(:firstname, :lastname, :student_image, :file)
     end
 end

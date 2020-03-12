@@ -44,3 +44,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dry-configurable', '0.9'
 
 gem 'devise-jwt', '~> 0.5.9'
+
+gem 'carrierwave'
+
+gem 'active_model_serializers'
+
+gem 'will_paginate'
+
+gem 'api-pagination'
